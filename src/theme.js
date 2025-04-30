@@ -63,6 +63,17 @@ const theme = createTheme({
       fontWeight: 500,
       fontFamily: "Inria Sans",
     }
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: "none",
+          // boerderRadius: "100px",
+          padding: "22px 22px",
+        }
+      }
+    }
   }
 });
 
