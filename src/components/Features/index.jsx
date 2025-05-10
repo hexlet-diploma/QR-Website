@@ -1,9 +1,11 @@
 import React from "react";
-import { Typography, Box, Stack, useTheme, Grid } from "@mui/material";
+import { Typography, Box, Stack, Grid } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import FeatureBlock from "../FeatureBlock";
 
 const Features = () => {
   const theme = useTheme();
+
   const features = [
     {
       type: "generate",
@@ -41,40 +43,34 @@ const Features = () => {
       isAndMore: true,
     },
   ];
+
   return (
-    <Stack spacing={2}>
-      <Stack direction="row" alignItems="center" gap="20px">
-        <Box>
-          <Typography
-            variant="subtitle1"
-            sx={{
-              backgroundColor: theme.palette.secondary.main,
-              color: "#000",
-              display: "inline-block",
-              px: "10px",
-              py: "5px",
-              borderRadius: "20px",
-            }}
-          >
-            Features
-          </Typography>
-        </Box>
-        <Box>
-          <Typography variant="h4">
-            This is a small list of features our extension offers.
-            <br />
-            There will be more in time!
-          </Typography>
-        </Box>
+    <Stack spacing={4} alignItems="flex-start">
+      <Stack direction="row" alignItems="center" gap={2} flexWrap="wrap">
+        <Typography
+          variant="h6"
+          sx={{
+            backgroundColor: "#C9ACF8",
+            color: "#000",
+            px: 2,
+            py: 0.5,
+            borderRadius: "10px",
+            fontWeight: 600,
+          }}
+        >
+          Features
+        </Typography>
+        <Typography variant="body1">
+          This is a small list of features our extension offers.
+          <br />
+          There will be more in time!
+        </Typography>
       </Stack>
-      <Grid container alignSelf="center" sx={{ maxWidth: "80%" }} rowSpacing={2.5} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+
+      <Grid container spacing={4} justifyContent="center" maxWidth="md" alignSelf="center">
         {features.map((feature, index) => (
-          <Grid item xs={12} sm={6} md={6} key={index}>
-            <FeatureBlock
-              type={feature.type}
-              description={feature.description}
-              isAndMore={feature.isAndMore}
-            />
+          <Grid item xs={12} sm={6} key={index} display="flex" justifyContent="center">
+            <FeatureBlock {...feature} />
           </Grid>
         ))}
       </Grid>

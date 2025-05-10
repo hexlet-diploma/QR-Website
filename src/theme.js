@@ -22,7 +22,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: `"Inria Sans", "Arial", sans-serif`,
+    fontFamily: `"Fira Sans", "Arial", sans-serif`,
     h1: {
       fontSize: "60px",
       fontWeight: "500",
@@ -71,6 +71,14 @@ const theme = createTheme({
           textTransform: "none",
           // boerderRadius: "100px",
           padding: "22px 22px",
+        }
+      }
+    },
+    MuiContainer: {
+      styleOverrides: {
+        root: {
+          padding: "0px",
+          maxWidth: "100%",
         }
       }
     }

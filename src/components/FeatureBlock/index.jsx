@@ -5,62 +5,85 @@ import ColorPicker from "../../assets/ColorPicker.png";
 
 const FeatureBlock = ({ type = "", description = "", isAndMore = false }) => {
   const theme = useTheme();
+
   return (
     <Box
-      sx={(theme) => ({
-        backgroundColor: theme.palette.block.main,
-        padding: "50px",
-        borderRadius: "50px",
-        width: "100%",
-        height: "350px",
-        maxWidth: "600px",
-        boxSizing: "border-box",
+      sx={{
+        backgroundColor: "#F5F5F5",
+        borderRadius: "24px",
+        width: "220px",
+        height: "220px",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
         justifyContent: "center",
-        boxShadow: `0px 8px 0px ${theme.palette.secondary.main}`,
-
-      })}
+        alignItems: "center",
+        padding: 2,
+        textAlign: "center",
+        boxShadow: "0 8px 0 #c9acf8",
+      }}
     >
-      <Stack spacing={2} alignItems="center" justifyContent="center">
+      <Stack spacing={1} alignItems="center" justifyContent="center">
         {type === "generate" && (
           <Button
             sx={{
-              backgroundColor: theme.palette.secondary.main,
+              backgroundColor: "#C9ACF8",
               color: "#fff",
               borderRadius: "10px",
-              width: "auto",
+              fontSize: "0.875rem",
+              textTransform: "none",
+              px: 2,
+              py: 0.5,
             }}
           >
-            <Typography variant="h4">Generate QR</Typography>
+            Generate QR
           </Button>
         )}
         {type === "link" && (
-          <TextField id="link-feature" label="https://link.com/" variant="filled" />
+          <TextField
+            variant="filled"
+            value="https://link.com/"
+            InputProps={{
+              disableUnderline: true,
+              readOnly: true,
+              style: {
+                backgroundColor: "#fff",
+                borderRadius: "8px",
+                fontSize: "0.75rem",
+                padding: "6px 8px",
+              },
+            }}
+            sx={{ width: "100%" }}
+          />
         )}
         {type === "copy" && (
           <Button
             sx={{
-              backgroundColor: theme.palette.secondary.main,
-              color: "#fff",
+              backgroundColor: "#fff",
+              border: "1px solid #ccc",
+              color: "#000",
               borderRadius: "10px",
-              width: "auto",
+              fontSize: "0.875rem",
+              textTransform: "none",
+              px: 2,
+              py: 0.5,
             }}
           >
-            <Typography variant="h4">Copy</Typography>
+            Copy
           </Button>
         )}
         {type === "download" && (
           <Button
             sx={{
-              backgroundColor: theme.palette.secondary.main,
+              backgroundColor: "#7EB6FF",
               color: "#fff",
               borderRadius: "10px",
-              width: "auto",
+              fontSize: "0.875rem",
+              textTransform: "none",
+              px: 2,
+              py: 0.5,
             }}
           >
-            <Typography variant="h4">Download</Typography>
+            Download
           </Button>
         )}
         {type === "color" && (
@@ -68,14 +91,13 @@ const FeatureBlock = ({ type = "", description = "", isAndMore = false }) => {
             component="img"
             src={ColorPicker}
             alt="Color Picker"
-            sx={{
-              width: "100px",
-              height: "100px",
-              objectFit: "contain",
-            }}
+            sx={{ width: "48px", height: "48px" }}
           />
         )}
-        <Typography variant={type === "andMore" ? "subtitle1" : "h6"}>
+        <Typography
+          variant={isAndMore ? "h6" : "body2"}
+          sx={{ mt: 1, maxWidth: 180 }}
+        >
           {description}
         </Typography>
       </Stack>
