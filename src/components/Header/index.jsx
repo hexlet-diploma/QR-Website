@@ -8,7 +8,7 @@ const Header = () => {
     <>
       <Stack direction="row" alignItems="center" justifyContent="space-between">
         <Stack direction="row" alignItems="center">
-          <QRIcon />
+          <QRIcon width="62" height="62" color="black"/>
           <Typography variant="h2">QRCodeGen</Typography>
         </Stack>
         <Stack direction="row" alignItems="center" gap="70px">
@@ -21,7 +21,7 @@ const Header = () => {
           <Typography variant="h3">
             Team
           </Typography>
-          <Button sx={{ backgroundColor: theme.palette.primary.main, color: "#fff", borderRadius: "10px" }}>
+          <Button sx={{ backgroundColor: theme.palette.primary.main, color: "#000", borderRadius: "10px" }}>
             <Typography variant="h3">
               Download
             </Typography>
