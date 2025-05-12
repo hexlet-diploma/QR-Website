@@ -18,22 +18,34 @@ const Footer = () => {
       sx={{
         backgroundColor: theme.palette.footer.main,
         color: "white",
-        py: 6,
+        py: { xs: 4, md: 6 },
+        px: { xs: 2, md: 8 },
         width: "100%",
       }}
     >
       {/* Верхний блок */}
       <Stack
-        direction="row"
+        direction={{ xs: "column", md: "row" }}
         alignItems="center"
         justifyContent="space-between"
-        px={8}
-        mb={6}
+        spacing={4}
+        mb={{ xs: 4, md: 6 }}
       >
         <Logo color="#fff" />
-        <Stack direction="row" alignItems="center" spacing={7}>
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          alignItems="center"
+          spacing={{ xs: 2, sm: 4, md: 7 }}
+          textAlign={{ xs: "center", sm: "left" }}
+        >
           {["About", "Docs", "Team"].map((item) => (
-            <Typography key={item} variant="h3" sx={{ textDecoration: "underline" }}>
+            <Typography
+              key={item}
+              variant="h3"
+              sx={{
+                textDecoration: "underline",
+              }}
+            >
               {item}
             </Typography>
           ))}
@@ -55,11 +67,11 @@ const Footer = () => {
 
       {/* Контентная часть */}
       <Stack
-        direction="row"
+        direction={{ xs: "column", md: "row" }}
         justifyContent="space-between"
-        alignItems="flex-start"
-        px={8}
-        mb={6}
+        alignItems={{ xs: "stretch", md: "flex-start" }}
+        spacing={4}
+        mb={{ xs: 4, md: 6 }}
       >
         {/* Контакты */}
         <Stack spacing={1.5}>
@@ -88,24 +100,26 @@ const Footer = () => {
 
         {/* Email-подписка */}
         <Box
-          sx={(theme) => ({
+          sx={{
             backgroundColor: theme.palette.emailBlock.main,
-            p: 4,
+            p: 3,
             borderRadius: "16px",
             display: "flex",
-            alignItems: "center",
+            flexDirection: { xs: "column", sm: "row" },
+            alignItems: "stretch",
             gap: 2,
-          })}
+          }}
         >
           <TextField
             label="Email"
             variant="outlined"
+            fullWidth
             sx={{
               input: { color: "white" },
               label: { color: "white" },
               fieldset: { borderColor: "white" },
               borderRadius: "16px",
-              width: "300px",
+              minWidth: "250px",
             }}
           />
           <Button
@@ -118,6 +132,7 @@ const Footer = () => {
               fontSize: "1.2rem",
               fontWeight: 500,
               textTransform: "none",
+              width: { xs: "100%", sm: "auto" },
             }}
           >
             Subscribe
@@ -126,7 +141,7 @@ const Footer = () => {
       </Stack>
 
       {/* Divider + подпись */}
-      <Box px={8}>
+      <Box>
         <Divider
           sx={{
             backgroundColor: "rgba(255, 255, 255, 0.4)",
@@ -134,7 +149,9 @@ const Footer = () => {
             mb: 2,
           }}
         />
-        <Typography variant="body2">© 2025. QRCodeGen  Team 04</Typography>
+        <Typography variant="body2" textAlign={{ xs: "center", md: "left" }}>
+          © 2025. QRCodeGen  Team 04
+        </Typography>
       </Box>
     </Box>
   );
