@@ -11,7 +11,10 @@ import Features from "./components/Features";
 import Team from "./components/Team";
 import Footer from "./components/Footer";
 
+import { useMediaQuery } from "@mui/material";
+
 function App() {
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -25,10 +28,10 @@ function App() {
           minHeight: "100vh",
           minWidth: "100vw",
           backgroundColor: theme.palette.background.default,
-          paddingTop: "20px"
+          paddingTop: isMobile ? "20px" : "50px",
         }}
       >
-        <Stack gap="90px" sx={{ maxWidth: "1200px", width: "100%", margin: "0 auto", flexGrow: 1 }} pb="173px">
+        <Stack sx={{ maxWidth: "1200px", width: "100%", margin: "0 auto", flexGrow: 1 }} pb="173px">
           <Header />
           <Intro />
           <OpenSourceSection />
