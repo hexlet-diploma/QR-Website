@@ -35,7 +35,8 @@ const Intro = () => {
             backgroundColor: theme.palette.secondary.main,
             color: "#fff",
             borderRadius: "10px",
-            width: "auto",
+            px: 3,
+            py: 1,
           }}
         >
           <Typography variant="h4">Download QRCodeGen</Typography>

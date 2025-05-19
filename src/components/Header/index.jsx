@@ -44,6 +44,8 @@ const Header = () => {
             backgroundColor: theme.palette.primary.main,
             color: "#000",
             borderRadius: "10px",
+            px: 3,
+            py: 1,
           }}
         >
           <Typography variant="h3">Download</Typography>
