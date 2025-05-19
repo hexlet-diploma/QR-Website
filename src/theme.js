@@ -20,6 +20,9 @@ const theme = createTheme({
     emailBlock: {
       main: "#292a32",
     },
+    menu: {
+      main: "#000",
+    }
   },
   typography: {
     fontFamily: `"Fira Sans", "Arial", sans-serif`,
