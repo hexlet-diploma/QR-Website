@@ -25,7 +25,7 @@ const theme = createTheme({
     }
   },
   typography: {
-    fontFamily: `"Fira Sans", "Arial", sans-serif`,
+    fontFamily: `"Inria Sans", "Arial", sans-serif`,
     h1: {
       fontSize: "60px",
       fontWeight: "500",
