@@ -71,13 +71,29 @@ const Team = () => {
         </Typography>
       </Box>
 
-      <Grid container spacing={4} justifyContent="center">
-        {teammates.map((teammate, index) => (
+      {/* Верхний ряд: 3 участника */}
+      <Grid container spacing={4} justifyContent="center" alignSelf="center">
+        {teammates.slice(0, 3).map((teammate, index) => (
           <Grid
             item
             xs={12}
             sm={4}
-            md={4}
+            key={index}
+            display="flex"
+            justifyContent="center"
+          >
+            <Teammate {...teammate} />
+          </Grid>
+        ))}
+      </Grid>
+
+      {/* Нижний ряд: 2 участника */}
+      <Grid container spacing={4} justifyContent="center" sx={{ mt: 2 }} alignSelf="center">
+        {teammates.slice(3, 5).map((teammate, index) => (
+          <Grid
+            item
+            xs={12}
+            sm={6}
             key={index}
             display="flex"
             justifyContent="center"
