@@ -68,13 +68,11 @@ const Features = () => {
         </Typography>
       </Box>
 
-      <Grid container spacing={4} justifyContent="center">
+      <Grid container spacing={4} justifyContent="center" width="40%" alignSelf="center">
         {features.map((feature, index) => (
           <Grid
             item
-            xs={12}
-            sm={6}
-            md={4}
+            size={{ xs: 12, md: 6 }}
             key={index}
             display="flex"
             justifyContent="center"

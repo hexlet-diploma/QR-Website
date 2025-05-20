@@ -51,7 +51,8 @@ const Intro = () => {
           sx={{ width: { xs: "100%", md: "498px" } }}
         >
           Incredibly easy free extension for your browser that allows you to
-          generate QR code of the current page, your custom links or text in one click.
+          generate QR code of the current page, your custom links or text in one
+          click.
         </Typography>
 
         <Button
@@ -62,6 +63,8 @@ const Intro = () => {
             px: 3,
             py: 1,
           }}
+          href="https://github.com/hexlet-diploma/QRCodeGen/releases/tag/v1.0.1"
+          target="_blank"
         >
           <Typography variant="h4">Download QRCodeGen</Typography>
         </Button>

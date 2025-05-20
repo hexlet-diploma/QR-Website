@@ -70,6 +70,8 @@ const Header = () => {
               px: 3,
               py: 1,
             }}
+            href="https://github.com/hexlet-diploma/QRCodeGen/releases/tag/v1.0.1"
+            target="_blank"
           >
             <Typography variant="h3">Download</Typography>
           </Button>

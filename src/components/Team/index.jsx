@@ -17,7 +17,8 @@ const Team = () => {
       name: "Vasilina Miryan",
       role: "Designer",
       imgPath: "",
-      description: "JS enthusiast, Figma enjoyer and TS hater. When she can't get a bug fixed, she thinks the world is rotten and there’s nothing left but misery.",
+      description:
+        "JS enthusiast, Figma enjoyer and TS hater. When she can't get a bug fixed, she thinks the world is rotten and there’s nothing left but misery.",
     },
     {
       name: "Elena Kolupaeva",
@@ -40,30 +41,47 @@ const Team = () => {
   ];
 
   return (
-    <Stack spacing={4} alignItems="center">
-      <Box>
+    <Stack spacing={4} alignItems="flex-start">
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          alignItems: "center",
+          gap: 2,
+        }}
+      >
         <Typography
-          variant="h6"
+          variant="subtitle1"
           sx={{
-            backgroundColor: "#7EB6FF",
+            backgroundColor: theme.palette.primary.main,
             color: "#000",
             px: 2,
-            py: 0.5,
-            borderRadius: "10px",
-            fontWeight: 600,
+            borderRadius: "20px",
             textAlign: "center",
+            fontSize: { xs: "32px", md: "48px" },
+            display: "inline-block",
+            alignSelf: "center",
           }}
         >
           Team
         </Typography>
+
+        <Typography variant="body1" textAlign="center" maxWidth="sm">
+          We are a small team of students trying our best to make life easier for others! We work only on a sheer power of our motivation and the fury of our academic supervisor.
+        </Typography>
       </Box>
-      <Typography variant="body1" textAlign="center" maxWidth="sm">
-        We are a small team of students trying our best to make life easier for others! We work only on a sheer power of our motivation and the fury of our academic supervisor.
-      </Typography>
 
       <Grid container spacing={4} justifyContent="center">
         {teammates.map((teammate, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index} display="flex" justifyContent="center">
+          <Grid
+            item
+            xs={12}
+            sm={4}
+            md={4}
+            key={index}
+            display="flex"
+            justifyContent="center"
+          >
             <Teammate {...teammate} />
           </Grid>
         ))}
