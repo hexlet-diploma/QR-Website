@@ -20,19 +20,21 @@ const FeatureBlock = ({ type = "", description = "", isAndMore = false }) => {
         padding: 2,
         textAlign: "center",
         boxShadow: "0 8px 0 #c9acf8",
+        border: "1px solid #000",
       }}
     >
       <Stack spacing={1} alignItems="center" justifyContent="center">
         {type === "generate" && (
           <Button
             sx={{
-              backgroundColor: "#C9ACF8",
+              backgroundColor: theme.palette.secondary.main,
               color: "#fff",
               borderRadius: "10px",
               fontSize: "0.875rem",
               textTransform: "none",
               px: 2,
               py: 0.5,
+              fontFamily: "Arial, sans-serif",
             }}
           >
             Generate QR
@@ -50,6 +52,7 @@ const FeatureBlock = ({ type = "", description = "", isAndMore = false }) => {
                 borderRadius: "8px",
                 fontSize: "0.75rem",
                 padding: "6px 8px",
+                fontFamily: "Arial, sans-serif",
               },
             }}
             sx={{ width: "100%" }}
@@ -66,6 +69,7 @@ const FeatureBlock = ({ type = "", description = "", isAndMore = false }) => {
               textTransform: "none",
               px: 2,
               py: 0.5,
+              fontFamily: "Arial, sans-serif",
             }}
           >
             Copy
@@ -81,6 +85,7 @@ const FeatureBlock = ({ type = "", description = "", isAndMore = false }) => {
               textTransform: "none",
               px: 2,
               py: 0.5,
+              fontFamily: "Arial, sans-serif",
             }}
           >
             Download
@@ -96,7 +101,7 @@ const FeatureBlock = ({ type = "", description = "", isAndMore = false }) => {
         )}
         <Typography
           variant={isAndMore ? "h6" : "body2"}
-          sx={{ mt: 1, maxWidth: 180 }}
+          sx={{ mt: 1, maxWidth: 180, fontFamily: "Arial, sans-serif" }}
         >
           {description}
         </Typography>
