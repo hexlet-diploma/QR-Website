@@ -12,7 +12,7 @@ const Intro = () => {
       alignItems="center"
       spacing={{ xs: 4, md: 0 }}
       sx={{ px: { xs: "16px", md: "0px" } }}
-      pt={{ xs: 2, md: 10 }}
+      pt={{ xs: 4, md: 10 }}
     >
       {/* Левая колонка (заголовок + текст + кнопка) */}
       <Stack
@@ -57,7 +57,7 @@ const Intro = () => {
         <Button
           sx={{
             backgroundColor: theme.palette.secondary.main,
-            color: "#fff",
+            color: "#000",
             borderRadius: "10px",
             px: 3,
             py: 1,
