@@ -31,7 +31,7 @@ function App() {
           paddingTop: isMobile ? "20px" : "50px",
         }}
       >
-        <Stack sx={{ maxWidth: "1200px", width: "100%", margin: "0 auto", flexGrow: 1 }} pb="173px">
+        <Stack sx={{ maxWidth: "1200px", width: "100%", margin: "0 auto", flexGrow: 1 }} pb="173px" spacing="30px">
           <Header />
           <Intro />
           <OpenSourceSection />
