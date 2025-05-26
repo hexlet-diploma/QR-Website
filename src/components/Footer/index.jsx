@@ -152,7 +152,8 @@ const Footer = () => {
             p: 3,
             borderRadius: "16px",
             display: "flex",
-            flexDirection: "column",
+            flexDirection: { xs: "column", sm: "row" },
+            alignItems: "center",
             gap: 2,
             minWidth: "280px",
           }}
@@ -206,7 +207,7 @@ const Footer = () => {
           }}
         />
         <Typography variant="body2" textAlign={{ xs: "center", md: "left" }}>
-          © 2025. QRCodeGen  Team 04
+          © 2025. QRCodeGen  Team 04
         </Typography>
       </Box>
 
