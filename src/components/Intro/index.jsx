@@ -62,6 +62,14 @@ const Intro = () => {
             borderRadius: "10px",
             px: 3,
             py: 1,
+            transition: "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+              "&:hover": {
+                background: "linear-gradient(135deg, #5151e5 0%, #72edf2 100%)",
+                color: "#fff",
+                boxShadow: "0 12px 24px rgba(81, 81, 229, 0.35)",
+                transform: "translateY(-2px)",
+              },
           }}
           href="https://github.com/hexlet-diploma/QRCodeGen/releases/tag/v1.0.1"
           target="_blank"
