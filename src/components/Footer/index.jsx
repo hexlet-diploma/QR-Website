@@ -21,8 +21,7 @@ const Footer = () => {
   const [loading, setLoading] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
-  const validateEmail = (email) =>
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const handleSubscribe = async () => {
     if (!validateEmail(email)) {
@@ -85,7 +84,14 @@ const Footer = () => {
             <Typography
               key={item}
               variant="h3"
-              sx={{ textDecoration: "underline", cursor: "pointer" }}
+              sx={{
+                cursor: "pointer",
+                transition: "all 0.4s ease",
+                "&:hover": {
+                  color: theme.palette.primary.main,
+                  transform: "translateY(-2px)",
+                },
+              }}
               onClick={() => {
                 const el = document.getElementById(item.toLowerCase());
                 if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -101,7 +107,14 @@ const Footer = () => {
               borderRadius: "10px",
               px: 3,
               py: 1,
-              textTransform: "none",
+              transition: "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+              "&:hover": {
+                background: "linear-gradient(135deg, #72edf2 0%, #5151e5 100%)",
+                color: "#fff",
+                boxShadow: "0 12px 24px rgba(81, 81, 229, 0.35)",
+                transform: "translateY(-2px)",
+              },
             }}
             href="https://github.com/hexlet-diploma/QRCodeGen/releases/tag/v1.0.1"
             target="_blank"
@@ -186,13 +199,25 @@ const Footer = () => {
               color: "#000",
               borderRadius: "16px",
               px: 4,
-              py: 2,
+              py: 1,
               fontSize: "1.2rem",
+              fontFamily: "Arial, sans-serif",
               fontWeight: 500,
+              transition: "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
               textTransform: "none",
+              "&:hover": {
+                background: "linear-gradient(135deg, #72edf2 0%, #5151e5 100%)",
+                color: "#fff",
+                boxShadow: "0 12px 24px rgba(81, 81, 229, 0.35)",
+                transform: "translateY(-2px)",
+              },
             }}
           >
-            {loading ? <CircularProgress size={24} color="inherit" /> : "Subscribe"}
+            {loading ? (
+              <CircularProgress size={24} color="inherit" />
+            ) : (
+              "Subscribe"
+            )}
           </Button>
         </Box>
       </Stack>
@@ -207,7 +232,7 @@ const Footer = () => {
           }}
         />
         <Typography variant="body2" textAlign={{ xs: "center", md: "left" }}>
-          © 2025. QRCodeGen  Team 04
+          © 2025. QRCodeGen Team 04
         </Typography>
       </Box>
 
