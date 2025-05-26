@@ -7,6 +7,8 @@ import {
   TextField,
   Divider,
   CircularProgress,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 import Logo from "../Logo";
 import GitHubIcon from "../GitHubIcon";
@@ -17,6 +19,7 @@ const Footer = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [openSnackbar, setOpenSnackbar] = useState(false);
 
   const validateEmail = (email) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -41,6 +44,7 @@ const Footer = () => {
       if (response.ok) {
         setSuccess(true);
         setEmail("");
+        setOpenSnackbar(true);
       } else {
         setError("Failed to send. Please try again later.");
       }
@@ -148,7 +152,8 @@ const Footer = () => {
             p: 3,
             borderRadius: "16px",
             display: "flex",
-            flexDirection: "column",
+            flexDirection: { xs: "column", sm: "row" },
+            alignItems: "center",
             gap: 2,
             minWidth: "280px",
           }}
@@ -189,15 +194,6 @@ const Footer = () => {
           >
             {loading ? <CircularProgress size={24} color="inherit" /> : "Subscribe"}
           </Button>
-
-          {success && (
-            <Typography
-              variant="subtitle2"
-              sx={{ color: theme.palette.success.main }}
-            >
-              Subscription successful!
-            </Typography>
-          )}
         </Box>
       </Stack>
 
@@ -211,9 +207,25 @@ const Footer = () => {
           }}
         />
         <Typography variant="body2" textAlign={{ xs: "center", md: "left" }}>
-          © 2025. QRCodeGen  Team 04
+          © 2025. QRCodeGen  Team 04
         </Typography>
       </Box>
+
+      {/* Уведомление */}
+      <Snackbar
+        open={openSnackbar}
+        autoHideDuration={4000}
+        onClose={() => setOpenSnackbar(false)}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        <Alert
+          onClose={() => setOpenSnackbar(false)}
+          severity="success"
+          sx={{ width: "100%" }}
+        >
+          Subscription successfull!
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };
