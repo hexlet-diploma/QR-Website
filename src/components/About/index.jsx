@@ -7,7 +7,7 @@ const About = () => {
   const theme = useTheme();
 
   return (
-    <Stack alignItems="flex-start" sx={{ mx: { xs: 2, md: 0 } }}>
+    <Stack alignItems="flex-start" sx={{ mx: { xs: 2, md: 0 }, py: 4 }} id="about">
       {/* Заголовок "About" — только для десктопа */}
       <Typography
         variant="subtitle1"

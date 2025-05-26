@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Typography,
   Box,
@@ -6,12 +6,51 @@ import {
   Button,
   TextField,
   Divider,
+  CircularProgress,
 } from "@mui/material";
 import Logo from "../Logo";
 import GitHubIcon from "../GitHubIcon";
 import theme from "../../theme";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const validateEmail = (email) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  const handleSubscribe = async () => {
+    if (!validateEmail(email)) {
+      setError("Invalid email address");
+      setSuccess(false);
+      return;
+    }
+
+    setError("");
+    setLoading(true);
+
+    try {
+      const response = await fetch("https://formspree.io/f/mdkgrjwq", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        setSuccess(true);
+        setEmail("");
+      } else {
+        setError("Failed to send. Please try again later.");
+      }
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <Box
       component="footer"
@@ -23,7 +62,7 @@ const Footer = () => {
         width: "100%",
       }}
     >
-      {/* Верхний блок */}
+      {/* Верхняя часть футера */}
       <Stack
         direction={{ xs: "column", md: "row" }}
         alignItems="center"
@@ -42,8 +81,10 @@ const Footer = () => {
             <Typography
               key={item}
               variant="h3"
-              sx={{
-                textDecoration: "underline",
+              sx={{ textDecoration: "underline", cursor: "pointer" }}
+              onClick={() => {
+                const el = document.getElementById(item.toLowerCase());
+                if (el) el.scrollIntoView({ behavior: "smooth" });
               }}
             >
               {item}
@@ -58,6 +99,8 @@ const Footer = () => {
               py: 1,
               textTransform: "none",
             }}
+            href="https://github.com/hexlet-diploma/QRCodeGen/releases/tag/v1.0.1"
+            target="_blank"
           >
             <Typography variant="h3">Download</Typography>
           </Button>
@@ -65,7 +108,7 @@ const Footer = () => {
         <GitHubIcon width="42" height="42" color="#fff" />
       </Stack>
 
-      {/* Контентная часть */}
+      {/* Контент футера */}
       <Stack
         direction={{ xs: "column", md: "row" }}
         justifyContent="space-between"
@@ -105,24 +148,34 @@ const Footer = () => {
             p: 3,
             borderRadius: "16px",
             display: "flex",
-            flexDirection: { xs: "column", sm: "row" },
-            alignItems: "stretch",
+            flexDirection: "column",
             gap: 2,
+            minWidth: "280px",
           }}
         >
           <TextField
             label="Email"
             variant="outlined"
             fullWidth
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              setError("");
+              setSuccess(false);
+            }}
+            error={Boolean(error)}
+            helperText={error}
             sx={{
               input: { color: "white" },
               label: { color: "white" },
               fieldset: { borderColor: "white" },
               borderRadius: "16px",
-              minWidth: "250px",
             }}
           />
+
           <Button
+            onClick={handleSubscribe}
+            disabled={loading}
             sx={{
               backgroundColor: theme.palette.primary.main,
               color: "#000",
@@ -132,15 +185,23 @@ const Footer = () => {
               fontSize: "1.2rem",
               fontWeight: 500,
               textTransform: "none",
-              width: { xs: "100%", sm: "auto" },
             }}
           >
-            Subscribe
+            {loading ? <CircularProgress size={24} color="inherit" /> : "Subscribe"}
           </Button>
+
+          {success && (
+            <Typography
+              variant="subtitle2"
+              sx={{ color: theme.palette.success.main }}
+            >
+              Subscription successful!
+            </Typography>
+          )}
         </Box>
       </Stack>
 
-      {/* Divider + подпись */}
+      {/* Подвал */}
       <Box>
         <Divider
           sx={{

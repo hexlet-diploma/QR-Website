@@ -11,7 +11,7 @@ const Team = () => {
       name: "Nikita Ilkaev",
       role: "Team Lead",
       imgPath: "",
-      description: "<Тут текст, который каждый сам себе придумает.>",
+      description: "I have some experience in JavaScript, a basic engineering background, and strong hands-on experience in hardware repair. I stay calm under pressure, solve problems efficiently, and always try to support teammates. I value clear communication and a friendly, productive work environment.",
     },
     {
       name: "Vasilina Miryan",
@@ -24,24 +24,24 @@ const Team = () => {
       name: "Elena Kolupaeva",
       role: "Frontend",
       imgPath: "",
-      description: "<Тут текст, который каждый сам себе придумает.>",
+      description: "React developer with a passion for creating user-friendly interfaces. I love to learn new things and share my knowledge with others. I believe that teamwork is the key to success.",
     },
     {
       name: "Leonid Leonov",
       role: "Quality Engineer",
       imgPath: "",
-      description: "<Тут текст, который каждый сам себе придумает.>",
+      description: "Testing is my nature, I'll break whatever you throw at me. If it ain't broken, soon it will be",
     },
     {
       name: "Ilya Kisel",
       role: "Backend",
       imgPath: "",
-      description: "<Тут текст, который каждый сам себе придумает.>",
+      description: "Backend goblin and casual Docker conjurer. Knows that if something works on the first try — it’s probably a trap. Sleeps next to server logs. When the deploy fails at 3 AM, simply stares into the void and accepts fate.",
     },
   ];
 
   return (
-    <Stack spacing={4} alignItems="flex-start">
+    <Stack spacing={4} alignItems="flex-start" id="team" sx={{ py: 8}}>
       <Box
         sx={{
           display: "flex",
