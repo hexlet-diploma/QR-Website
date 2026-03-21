@@ -71,8 +71,9 @@ const Intro = () => {
                 transform: "translateY(-2px)",
               },
           }}
-          href="https://github.com/hexlet-diploma/QRCodeGen/releases/tag/v1.0.1"
+          href="https://github.com/hexlet-diploma/QRCodeGen/releases"
           target="_blank"
+          rel='noopener noreferrer'
         >
           <Typography variant="h4">Download QRCodeGen</Typography>
         </Button>
